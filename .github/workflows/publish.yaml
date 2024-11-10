@@ -37,8 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git subtree split --prefix github-pages -b pre-release
-          git push origin pre-release:gh-pages --force
+          git subtree push --prefix github-pages origin pre-release
+          git push origin +refs/remotes/origin/pre-release:refs/heads/gh-pages
 
       - name: Clean up
-        run: git branch -D pre-release
+        run: git push origin --delete pre-release
