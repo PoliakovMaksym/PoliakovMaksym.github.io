@@ -41,5 +41,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git push origin --delete gh-pages
-          git subtree push  --prefix github-pages origin gh-pages
+          git subtree split --prefix github-pages -b temp-branch
+          git push origin temp-branch:gh-pages --force
+          git branch -D temp-branch
