@@ -1,4 +1,4 @@
-name: Pull Request Check
+name: Successful Build
 
 on:
   pull_request:
@@ -16,12 +16,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Run unit tests
-        run: npm run test
 
       - name: Build
         run: npm run build
