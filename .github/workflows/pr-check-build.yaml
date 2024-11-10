@@ -1,8 +1,8 @@
-name: Successful Build
+name: Build
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   run_tests:
