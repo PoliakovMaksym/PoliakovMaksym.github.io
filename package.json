@@ -1,0 +1,7 @@
+{
+  "name": "poliakovmaksym.github.io",
+  "version": "0.0.1",
+  "scripts": {
+    "gh-pages": "git subtree push --prefix build origin gh-pages"
+  }
+}
