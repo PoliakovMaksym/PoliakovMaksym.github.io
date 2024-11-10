@@ -45,9 +45,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git push origin --delete pre-release
+          git push origin --delete pre-release || true
           git subtree push --prefix github-pages origin pre-release
           git push origin +refs/remotes/origin/pre-release:refs/heads/gh-pages
 
       - name: Clean up
-        run: git push origin --delete pre-release
+        run: git push origin --delete pre-release || true
