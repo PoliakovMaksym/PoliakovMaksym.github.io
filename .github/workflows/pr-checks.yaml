@@ -1,11 +1,11 @@
-name: Pull Request Checks
+name: PR Checks
 
 on:
   pull_request:
     branches: [master]
 
 jobs:
-  unit_tests:
+  Unit Tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: npm run test
 
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -43,7 +43,7 @@ jobs:
       - name: Build
         run: npm run build
 
-  prettier:
+  Prettier:
     runs-on: ubuntu-latest
 
     steps:
