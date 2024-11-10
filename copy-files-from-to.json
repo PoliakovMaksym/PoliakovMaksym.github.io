@@ -1,0 +1,15 @@
+{
+  "copyFiles": [
+    {
+      "from": "./build/**/*",
+      "to": "./github-pages"
+    },
+    {
+      "from": "./github-pages/index.html",
+      "to": "./github-pages/404.html"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "overwrite"
+  }
+}

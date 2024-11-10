@@ -1,0 +1,5 @@
+# Ignore Obsidia files
+Tori.TwitchGame.Obsidian
+
+# Ignore "system" files
+package-lock.json
