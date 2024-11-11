@@ -23,9 +23,14 @@ const isValidMuiPaletteMode = (value: any): value is PaletteMode => {
 const getFallbackColorMode = (): ColorMode => ColorMode.System;
 
 // Function to acquire a color mode from the browser's local storage
-const getColorModeFromLocalStorage = (): ColorMode => {
+export const getColorModeFromLocalStorage = (): ColorMode => {
   const modeValue = localStorage.getItem(COLOR_MODE_STORAGE_KEY);
   return isValidColorMode(modeValue) ? modeValue : getFallbackColorMode();
+};
+
+// Function to store selected color mode to the browser's local storage
+export const setColorModeToLocalStorage = (colorMode: ColorMode) => {
+  localStorage.setItem(COLOR_MODE_STORAGE_KEY, colorMode);
 };
 
 export const convertColorModeToMuiPaletteMode = (colorMode: ColorMode): PaletteMode => {
@@ -41,12 +46,18 @@ export const convertColorModeToMuiPaletteMode = (colorMode: ColorMode): PaletteM
   return ColorMode.Light;
 };
 
-// Function to acquire initial Mui palette mode
-export const getInitialMuiPaletteMode = (): PaletteMode => {
-  const colorMode = getColorModeFromLocalStorage();
-  return convertColorModeToMuiPaletteMode(colorMode);
-};
+// Function to acquire initial color mode
+export const getInitialColorMode = (): ColorMode => getColorModeFromLocalStorage();
 
-export type ColorModeToggle = (colorMode: ColorMode) => void;
-export const ColorModeContext = React.createContext<ColorModeToggle>(() => {});
-export const useToggleColorMode = (): ColorModeToggle => React.useContext(ColorModeContext);
+export type ToggleColorMode = (colorMode: ColorMode) => void;
+interface ColorModeContextState {
+  colorMode: ColorMode;
+  toggleColorMode: ToggleColorMode;
+}
+
+export const ColorModeContext = React.createContext<ColorModeContextState>({
+  colorMode: ColorMode.System,
+  toggleColorMode: () => null,
+});
+
+export const useToggleColorMode = (): ColorModeContextState => React.useContext(ColorModeContext);

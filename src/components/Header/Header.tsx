@@ -1,16 +1,27 @@
 import React from 'react';
-import { Box, BoxProps, styled } from '@mui/material';
+import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 
-import { WithFixForStyled } from 'types';
+import { MenuIcon } from 'icons';
 
-const HeaderElement = styled(Box)<BoxProps & WithFixForStyled>({});
+import { Settings } from './Settings';
 
-export const Header = () => {
-  return (
-    <HeaderElement data-testid={Header._jestTestId} component='header'>
-      Header
-    </HeaderElement>
-  );
-};
+export const Header = () => (
+  <React.Fragment>
+    <AppBar data-testid={Header._jestTestId}>
+      <Toolbar>
+        <IconButton size='large' edge='start' color='inherit'>
+          <MenuIcon />
+        </IconButton>
+
+        <Typography variant='h6' component='div' textAlign='center' sx={{ flexGrow: 1 }}>
+          Raid Boss Timers
+        </Typography>
+
+        <Settings />
+      </Toolbar>
+    </AppBar>
+    <Toolbar />
+  </React.Fragment>
+);
 
 Header._jestTestId = 'header-component';

@@ -1,16 +1,14 @@
 import React from 'react';
-import {
-  createTheme,
-  CssBaseline,
-  PaletteMode,
-  ThemeProvider as MuiThemeProvider,
-} from '@mui/material';
+import { createTheme, CssBaseline, ThemeProvider as MuiThemeProvider } from '@mui/material';
 
 import {
+  ColorMode,
   ColorModeContext,
-  ColorModeToggle,
   convertColorModeToMuiPaletteMode,
-  getInitialMuiPaletteMode,
+  getColorModeFromLocalStorage,
+  getInitialColorMode,
+  setColorModeToLocalStorage,
+  ToggleColorMode,
 } from './colorMode';
 import { styleOverrides } from './styleOverrides';
 
@@ -19,19 +17,37 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = (props: ThemeProviderProps) => {
-  const [colorMode, setMode] = React.useState<PaletteMode>(getInitialMuiPaletteMode());
+  const [colorMode, setColorMode] = React.useState<ColorMode>(getInitialColorMode());
+
+  // Calculate Mui Theme
   const theme = React.useMemo(
-    () => createTheme({ palette: { mode: colorMode }, components: styleOverrides }),
+    () =>
+      createTheme({
+        palette: { mode: convertColorModeToMuiPaletteMode(colorMode) },
+        components: styleOverrides,
+      }),
+    [colorMode],
+  );
+
+  // Create a "Toggle color mode" callback
+  const toggleColorMode = React.useMemo<ToggleColorMode>(
+    () => colorMode => {
+      setColorMode(colorMode);
+      setColorModeToLocalStorage(colorMode);
+    },
     [],
   );
 
-  const colorModeToggle = React.useMemo<ColorModeToggle>(
-    () => colorMode => setMode(convertColorModeToMuiPaletteMode(colorMode)),
-    [],
-  );
+  // Listen for local storage changes and update color mode state based on what is stored there.
+  // This is done to sync multiple application tabs with each other.
+  React.useEffect(() => {
+    window.addEventListener('storage', () => setColorMode(getColorModeFromLocalStorage()));
+  }, []);
+
+  console.log(theme);
 
   return (
-    <ColorModeContext.Provider value={colorModeToggle}>
+    <ColorModeContext.Provider value={{ colorMode, toggleColorMode }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {props.children}
