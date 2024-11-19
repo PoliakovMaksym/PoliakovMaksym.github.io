@@ -10,7 +10,7 @@ import {
   SettingsOutlinedIcon,
 } from 'icons';
 import { ColorMode, useToggleColorMode } from 'theme/colorMode';
-import { utilityClasses } from 'utils/utilityClasses';
+import { utilityClasses } from 'utils';
 
 import { Button, ButtonGroup, Drawer, DrawerContent, DrawerHeader } from './Settings.styled';
 

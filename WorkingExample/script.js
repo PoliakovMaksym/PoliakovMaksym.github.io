@@ -18,7 +18,7 @@ function populateVoiceList() {
 
     if (aname < bname) {
       return -1;
-    } else if (aname == bname) {
+    } else if (aname === bname) {
       return 0;
     } else {
       return +1;
@@ -49,6 +49,8 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
 }
 
 function speak() {
+  synth.cancel();
+
   if (synth.speaking) {
     console.error('speechSynthesis.speaking');
     return;
@@ -57,12 +59,12 @@ function speak() {
   if (inputTxt.value !== '') {
     const utterThis = new SpeechSynthesisUtterance(inputTxt.value);
 
-    utterThis.onend = function (event) {
+    utterThis.onend = function () {
       console.log('SpeechSynthesisUtterance.onend');
     };
 
     utterThis.onerror = function (event) {
-      console.error('SpeechSynthesisUtterance.onerror');
+      console.error('SpeechSynthesisUtterance.onerror', event);
     };
 
     const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
@@ -93,8 +95,4 @@ pitch.onchange = function () {
 
 rate.onchange = function () {
   rateValue.textContent = rate.value;
-};
-
-voiceSelect.onchange = function () {
-  speak();
 };

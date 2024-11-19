@@ -52,6 +52,7 @@ module.exports = {
     // https://github.com/jsx-eslint/eslint-plugin-react?tab=readme-ov-file#list-of-supported-rules
     'react/prop-types': 'off',
     'react/display-name': 'off',
+    'react/no-unescaped-entities': 'off',
     'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
     // "react-hooks" plugin rules
     // https://legacy.reactjs.org/docs/hooks-rules.html
@@ -81,7 +82,7 @@ module.exports = {
           // React related packages come first.
           ['^react', '^@?\\w'],
           // Internal packages.
-          ['^(components|icons|pages|router|testUtils|theme|types|utils)(/.*|$)'],
+          ['^(components|data|icons|pages|router|testUtils|theme|types|utils)(/.*|$)'],
           // Side effect imports.
           ['^\\u0000'],
           // Parent imports. Put `..` last.
