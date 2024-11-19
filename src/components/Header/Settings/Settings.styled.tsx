@@ -9,7 +9,7 @@ import {
   SwipeableDrawer,
 } from '@mui/material';
 
-import { utilityClasses } from 'utils/utilityClasses';
+import { utilityClasses } from 'utils';
 
 export const Drawer = styled(SwipeableDrawer)(({ theme }) => ({
   [`.${paperClasses.root}`]: {
@@ -37,7 +37,6 @@ export const ButtonGroup = styled(MuiButtonGroup)({
 
 export const Button = styled(MuiButton)(({ theme }) => ({
   borderRadius: '12px',
-  textTransform: 'capitalize',
 
   [theme.breakpoints.down('sm')]: { padding: theme.spacing(1.5, 2) },
   [theme.breakpoints.up('sm')]: {

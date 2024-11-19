@@ -1,22 +1,15 @@
-import React from 'react';
 import { Stack, StackProps, styled } from '@mui/material';
 
-import { WithFixForStyled } from 'types';
-
-const PageContainer = styled(Stack)<StackProps & WithFixForStyled>({
+const PageContainer = styled(Stack)<StackProps<'main'>>({
   flex: 1,
 });
 
-interface PageProps {
-  children: React.ReactNode;
-}
+interface PageProps extends StackProps {}
 
-export const Page = (props: PageProps) => {
-  return (
-    <PageContainer data-testid={Page._jestTestId} component='main'>
-      {props.children}
-    </PageContainer>
-  );
-};
+export const Page = (props: PageProps) => (
+  <PageContainer data-testid={Page._jestTestId} component='main' {...props}>
+    {props.children}
+  </PageContainer>
+);
 
 Page._jestTestId = 'page-component';
