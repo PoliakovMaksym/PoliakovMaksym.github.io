@@ -34,6 +34,7 @@ export const Header = () => {
               <HomeButton
                 size='large'
                 edge='start'
+                color='inherit'
                 hidden={isHomePage}
                 onClick={handleHomeButtonClick}
               >

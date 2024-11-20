@@ -23,7 +23,7 @@ export const Settings = () => {
 
   return (
     <React.Fragment>
-      <IconButton size='large' edge='end' onClick={toggleDrawer(true)}>
+      <IconButton size='large' edge='end' color='inherit' onClick={toggleDrawer(true)}>
         <SettingsOutlinedIcon />
       </IconButton>
       <Drawer
@@ -36,7 +36,7 @@ export const Settings = () => {
           <Typography variant='h6' component='div'>
             Settings
           </Typography>
-          <IconButton size='medium' edge='end' onClick={toggleDrawer(false)}>
+          <IconButton size='medium' edge='end' color='inherit' onClick={toggleDrawer(false)}>
             <CloseIcon />
           </IconButton>
         </DrawerHeader>
