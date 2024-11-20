@@ -8,11 +8,12 @@ export enum BossCode {
 export interface BossInfo {
   code: BossCode;
   name: string;
+  coverImage: string;
+  icon: string;
   wing: {
     number: number;
     name: string;
   };
-  coverImageName: string;
   wiki: string;
   snowcrows: string;
 }
@@ -25,7 +26,8 @@ export const BOSSES: BossInfo[] = [
       number: 1,
       name: 'Spirit Vale',
     },
-    coverImageName: 'cover_image.webp',
+    coverImage: 'cover_image.webp',
+    icon: 'icon.png',
     wiki: 'https://wiki.guildwars2.com/wiki/Sabetha_the_Saboteur',
     snowcrows: 'https://snowcrows.com/guides/raids/spirit-vale/sabetha',
   },
@@ -36,7 +38,8 @@ export const BOSSES: BossInfo[] = [
       number: 2,
       name: 'Salvation Pass',
     },
-    coverImageName: 'cover_image.webp',
+    coverImage: 'cover_image.webp',
+    icon: 'icon.png',
     wiki: 'https://wiki.guildwars2.com/wiki/Slothasor',
     snowcrows: 'https://snowcrows.com/guides/raids/salvation-pass/slothasor',
   },
@@ -47,7 +50,8 @@ export const BOSSES: BossInfo[] = [
       number: 2,
       name: 'Salvation Pass',
     },
-    coverImageName: 'cover_image.webp',
+    coverImage: 'cover_image.webp',
+    icon: 'icon.png',
     wiki: 'https://wiki.guildwars2.com/wiki/Protect_the_caged_prisoners',
     snowcrows: 'https://snowcrows.com/guides/raids/salvation-pass/bandit-trio',
   },
@@ -58,7 +62,8 @@ export const BOSSES: BossInfo[] = [
       number: 5,
       name: 'Hall of Chains',
     },
-    coverImageName: 'cover_image.jpg',
+    coverImage: 'cover_image.jpg',
+    icon: 'icon.png',
     wiki: 'https://wiki.guildwars2.com/wiki/Dhuum',
     snowcrows: 'https://snowcrows.com/guides/raids/hall-chains/dhuum',
   },

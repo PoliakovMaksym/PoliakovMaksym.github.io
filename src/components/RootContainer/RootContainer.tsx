@@ -4,6 +4,7 @@ import { styled } from '@mui/material';
 import { motion } from 'motion/react';
 
 import { Header } from 'components/Header';
+import { FramerMotionFadeProps } from 'utils';
 
 const Content = styled(motion.main)(({ theme }) => ({
   flex: 1,
@@ -16,7 +17,7 @@ const Content = styled(motion.main)(({ theme }) => ({
 export const RootContainer = () => (
   <React.Fragment>
     <Header />
-    <Content initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <Content {...FramerMotionFadeProps}>
       <Outlet />
     </Content>
   </React.Fragment>
