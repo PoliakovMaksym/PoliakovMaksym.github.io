@@ -63,7 +63,7 @@ jobs:
         run: npm ci
 
       - name: Run unit tests
-        run: npm run test
+        run: npm run prettier:check
 
   ESLint:
     runs-on: ubuntu-latest

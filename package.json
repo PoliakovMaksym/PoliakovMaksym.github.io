@@ -12,7 +12,8 @@
     "test:coverage": "npm run test -- --coverage --watchAll=false --runInBand",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src/ --max-warnings=0",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src/ --max-warnings=0 --quiet",
-    "format": "prettier --write . --config ./.prettierrc",
+    "prettier": "prettier --write . --config ./.prettierrc",
+    "prettier:check": "prettier --check . --config ./.prettierrc",
     "copy-files": "copy-files-from-to"
   },
   "dependencies": {
