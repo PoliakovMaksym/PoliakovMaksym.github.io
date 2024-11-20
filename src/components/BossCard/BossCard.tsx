@@ -35,10 +35,7 @@ export const BossCard = (props: BossCardProps) => {
         disableTouchRipple
       >
         <CardMediaContainer>
-          <CardMedia
-            component='img'
-            image={`/assets/${bossInfo.code}/${bossInfo.coverImageName}`}
-          />
+          <CardMedia component='img' image={`/assets/${bossInfo.code}/${bossInfo.coverImage}`} />
         </CardMediaContainer>
 
         <CardContent>
