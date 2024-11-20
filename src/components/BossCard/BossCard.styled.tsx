@@ -2,19 +2,16 @@ import {
   Box,
   Card as MuiCard,
   CardContent as MuiCardContent,
-  CardMedia as MuiCardMedia,
-  CardMediaProps,
   styled,
   Typography,
   TypographyProps,
 } from '@mui/material';
 
-export const BOSS_CARD_MAX_WIDTH = '450px';
-export const Card = styled(MuiCard)({
+export const Card = styled(MuiCard)(({ theme }) => ({
   width: '100%',
-  maxWidth: BOSS_CARD_MAX_WIDTH,
+  maxWidth: `${theme.custom.components.BossCard.maxWidth}px`,
   textDecoration: 'none',
-});
+}));
 
 export const CardMediaContainer = styled(Box)({
   aspectRatio: '12 / 5',
@@ -23,10 +20,6 @@ export const CardMediaContainer = styled(Box)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-});
-
-export const CardMedia = styled(MuiCardMedia)<CardMediaProps<'img'>>({
-  // aspectRatio: '12 / 5',
 });
 
 export const CardContent = styled(MuiCardContent)({});
