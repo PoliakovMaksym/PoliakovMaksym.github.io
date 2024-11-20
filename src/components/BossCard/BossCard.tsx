@@ -60,7 +60,7 @@ export const BossCard = (props: BossCardProps) => {
           href={bossInfo.snowcrows}
           target='_blank'
         >
-          Snow Crow's
+          Snow Crows
         </Button>
         <Button variant='outlined' component='a' size='small' href={bossInfo.wiki} target='_blank'>
           Guild Wars 2 Wiki
