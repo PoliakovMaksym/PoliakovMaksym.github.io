@@ -1,17 +1,7 @@
-import { Grid2, Grid2Props, styled } from '@mui/material';
-
-import { BOSS_CARD_MAX_WIDTH, BossCard } from 'components/BossCard';
+import { BossCard } from 'components/BossCard';
 import { BOSSES } from 'data';
 
-const GridContainer = styled(Grid2)<Grid2Props & { spacing: number }>(({ theme, spacing }) => ({
-  width: '100%',
-  maxWidth: `calc(${BOSS_CARD_MAX_WIDTH} * 2 + ${theme.spacing(spacing)})`,
-}));
-
-const GridItem = styled(Grid2)({
-  display: 'flex',
-  justifyContent: 'center',
-});
+import { GridContainer, GridItem } from './HomePage.styled';
 
 export const HomePage = () => (
   <GridContainer container spacing={2}>

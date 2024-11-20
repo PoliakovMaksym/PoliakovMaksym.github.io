@@ -11,6 +11,7 @@ import {
   ToggleColorMode,
 } from './colorMode';
 import { styleOverrides } from './styleOverrides';
+import { CustomThemeExtension } from './themeExtension';
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -25,6 +26,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
       createTheme({
         palette: { mode: convertColorModeToMuiPaletteMode(colorMode) },
         components: styleOverrides,
+        custom: CustomThemeExtension,
       }),
     [colorMode],
   );

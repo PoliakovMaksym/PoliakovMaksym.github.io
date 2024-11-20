@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, CardActionArea, CardActions, Stack, Typography } from '@mui/material';
+import { Button, CardActionArea, CardActions, CardMedia, Stack, Typography } from '@mui/material';
 
 import { BossInfo } from 'data';
 import { PlaceIcon } from 'icons';
 
-import { BossName, Card, CardContent, CardMedia, CardMediaContainer } from './BossCard.styled';
+import { BossName, Card, CardContent, CardMediaContainer } from './BossCard.styled';
 
 interface BossCardProps {
   bossInfo: BossInfo;
@@ -69,5 +69,3 @@ export const BossCard = (props: BossCardProps) => {
     </Card>
   );
 };
-
-BossCard._maxWidth = 450;
