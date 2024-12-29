@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 
 import { RootRouter } from './router';
 import { ThemeProvider } from './theme';
@@ -7,7 +7,7 @@ import { ThemeProvider } from './theme';
 export const App = () => (
   <React.StrictMode>
     <ThemeProvider>
-      <BrowserRouter basename='/' future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <BrowserRouter basename='/'>
         <RootRouter />
       </BrowserRouter>
     </ThemeProvider>
