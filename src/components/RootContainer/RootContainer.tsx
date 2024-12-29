@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet } from 'react-router';
 import { styled } from '@mui/material';
 import { motion } from 'motion/react';
@@ -15,10 +14,10 @@ const Content = styled(motion.main)(({ theme }) => ({
 }));
 
 export const RootContainer = () => (
-  <React.Fragment>
+  <>
     <Header />
     <Content {...FramerMotionFadeProps}>
       <Outlet />
     </Content>
-  </React.Fragment>
+  </>
 );

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { Button, CardActionArea, CardActions, CardMedia, Stack, Typography } from '@mui/material';
+import { CardActions, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 
+import { BossLinks } from 'components/BossLinks';
 import { BossInfo } from 'data';
 import { PlaceIcon } from 'icons';
 
-import { BossName, Card, CardContent, CardMediaContainer } from './BossCard.styled';
+import { BossName, Card, CardActionArea, CardMediaContainer, DragonHead } from './BossCard.styled';
 
 interface BossCardProps {
   bossInfo: BossInfo;
@@ -17,18 +18,17 @@ export const BossCard = (props: BossCardProps) => {
 
   // Handle navigation when card is clicked
   const navigate = useNavigate();
-  const handleCardClick = React.useCallback(
-    (event: React.MouseEvent) => {
-      event.preventDefault();
+  const handleCardClick = (event: React.MouseEvent) => {
+    event.preventDefault();
 
-      if (event.ctrlKey) window.open(redirectTarget, '_blank');
-      else navigate(redirectTarget);
-    },
-    [navigate, redirectTarget],
-  );
+    if (event.ctrlKey) window.open(redirectTarget, '_blank');
+    else navigate(redirectTarget);
+  };
 
   return (
     <Card>
+      <DragonHead src='/assets/dragon_head.png' tabIndex={-1} />
+
       <CardActionArea
         component='a'
         href={redirectTarget}
@@ -54,19 +54,8 @@ export const BossCard = (props: BossCardProps) => {
         </CardContent>
       </CardActionArea>
 
-      <CardActions onClick={event => event.stopPropagation()}>
-        <Button
-          variant='outlined'
-          component='a'
-          size='small'
-          href={bossInfo.snowcrows}
-          target='_blank'
-        >
-          Snow Crows
-        </Button>
-        <Button variant='outlined' component='a' size='small' href={bossInfo.wiki} target='_blank'>
-          Guild Wars 2 Wiki
-        </Button>
+      <CardActions>
+        <BossLinks size='small' bossInfo={bossInfo} />
       </CardActions>
     </Card>
   );
