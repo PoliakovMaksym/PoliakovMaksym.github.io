@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { Button, CardActionArea, CardActions, CardMedia, Stack, Typography } from '@mui/material';
 
 import { BossInfo } from 'data';
@@ -20,7 +20,9 @@ export const BossCard = (props: BossCardProps) => {
   const handleCardClick = React.useCallback(
     (event: React.MouseEvent) => {
       event.preventDefault();
-      event.ctrlKey ? window.open(redirectTarget, '_blank') : navigate(redirectTarget);
+
+      if (event.ctrlKey) window.open(redirectTarget, '_blank');
+      else navigate(redirectTarget);
     },
     [navigate, redirectTarget],
   );

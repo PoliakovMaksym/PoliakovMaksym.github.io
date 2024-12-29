@@ -1,12 +1,12 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { render as RTL_render, RenderOptions, RenderResult } from '@testing-library/react';
 
 interface WrapperProps {
   Provider: React.JSXElementConstructor<any> | undefined;
   children: React.ReactNode;
   shouldUseProvider: boolean;
-  providerProps?: Record<any, any>;
+  providerProps?: Record<string, any>;
 }
 
 const Wrapper = (props: WrapperProps) => {
@@ -21,7 +21,7 @@ export const render = (
   options?: Omit<RenderOptions, 'queries'>,
 ): RenderResult => {
   const CustomWrapper = ({ children }: { children: React.ReactNode }) => (
-    <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <MemoryRouter>
       <Wrapper Provider={options?.wrapper} shouldUseProvider={Boolean(options?.wrapper)}>
         {children}
       </Wrapper>
