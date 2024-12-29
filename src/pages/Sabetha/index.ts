@@ -1,0 +1,1 @@
+export { SabethaPage } from './SabethaPage';
