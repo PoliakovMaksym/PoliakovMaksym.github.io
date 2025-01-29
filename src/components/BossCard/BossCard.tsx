@@ -1,12 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { CardActions, CardContent, CardMedia, Stack, Typography } from '@mui/material';
+import { CardContent, CardMedia, Typography } from '@mui/material';
 
 import { BossLinks } from 'components/BossLinks';
 import { BossInfo } from 'data';
 import { PlaceIcon } from 'icons';
 
-import { BossName, Card, CardActionArea, CardMediaContainer, DragonHead } from './BossCard.styled';
+import {
+  AnimatedMovingLine,
+  animatedMovingLineClasses,
+  BossLocation,
+  BossName,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardMediaContainer,
+  CardWrapper,
+  DragonHead,
+} from './BossCard.styled';
 
 interface BossCardProps {
   bossInfo: BossInfo;
@@ -26,37 +37,41 @@ export const BossCard = (props: BossCardProps) => {
   };
 
   return (
-    <Card>
-      <DragonHead src='/assets/dragon_head.png' tabIndex={-1} />
+    <CardWrapper>
+      <Card>
+        <DragonHead src='/assets/dragon_head.png' tabIndex={-1} />
 
-      <CardActionArea
-        component='a'
-        href={redirectTarget}
-        onClick={handleCardClick}
-        disableRipple
-        disableTouchRipple
-      >
-        <CardMediaContainer>
-          <CardMedia component='img' image={`/assets/${bossInfo.code}/${bossInfo.coverImage}`} />
-        </CardMediaContainer>
+        <CardActionArea
+          component='a'
+          href={redirectTarget}
+          onClick={handleCardClick}
+          disableRipple
+          disableTouchRipple
+        >
+          <CardMediaContainer>
+            <CardMedia component='img' image={`/assets/${bossInfo.code}/${bossInfo.coverImage}`} />
+          </CardMediaContainer>
 
-        <CardContent>
-          <BossName variant='h5' component='div'>
-            {bossInfo.name}
-          </BossName>
+          <CardContent>
+            <BossName variant='h5' component='div'>
+              {bossInfo.name}
+            </BossName>
 
-          <Stack direction='row' spacing={0.5}>
-            <PlaceIcon fontSize='small' />
-            <Typography variant='body2'>
-              Wing {bossInfo.wing.number} ~ {bossInfo.wing.name}
-            </Typography>
-          </Stack>
-        </CardContent>
-      </CardActionArea>
+            <BossLocation direction='row' spacing={0.5}>
+              <PlaceIcon fontSize='small' />
+              <Typography variant='body2'>
+                Wing {bossInfo.wing.number} ~ {bossInfo.wing.name}
+              </Typography>
+            </BossLocation>
+          </CardContent>
+        </CardActionArea>
 
-      <CardActions>
-        <BossLinks size='small' bossInfo={bossInfo} />
-      </CardActions>
-    </Card>
+        <CardActions>
+          <BossLinks size='small' bossInfo={bossInfo} />
+        </CardActions>
+      </Card>
+
+      <AnimatedMovingLine className={animatedMovingLineClasses.root} />
+    </CardWrapper>
   );
 };

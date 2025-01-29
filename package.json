@@ -4,7 +4,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "analyze-bundle": "npm run build -- --environment INCLUDE_BUNDLE_ANALYZE",
     "test": "react-scripts test --watchAll=false",
     "test:ui": "majestic",
     "test:watch": "react-scripts test",
@@ -15,7 +14,8 @@
     "lint:fix": "eslint . --fix --max-warnings=0 --quiet",
     "prettier": "prettier --write . --config ./.prettierrc",
     "prettier:check": "prettier --check . --config ./.prettierrc",
-    "copy-files": "copy-files-from-to"
+    "copy-files": "copy-files-from-to",
+    "analyze-bundle": "npm run build -- --environment INCLUDE_BUNDLE_ANALYZE"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
