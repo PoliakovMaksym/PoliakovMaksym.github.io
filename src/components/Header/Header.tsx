@@ -26,52 +26,49 @@ export const Header = () => {
   );
 
   return (
-    <React.Fragment>
-      <AppBar data-testid={Header._jestTestId}>
-        <Toolbar>
-          <AnimatePresence>
-            <Box component={motion.div} {...FramerMotionFadeProps}>
-              <HomeButton
-                size='large'
-                edge='start'
-                color='inherit'
-                hidden={isHomePage}
-                onClick={handleHomeButtonClick}
-              >
-                <KeyboardBackspaceIcon />
-              </HomeButton>
-            </Box>
-          </AnimatePresence>
-
-          <AnimatePresence>
-            <Stack
-              component={motion.div}
-              {...FramerMotionFadeProps}
-              flexGrow={1}
-              direction='row'
-              justifyContent='center'
-              alignItems='center'
-              spacing={1}
+    <AppBar position='sticky' data-testid={Header._jestTestId}>
+      <Toolbar>
+        <AnimatePresence>
+          <Box component={motion.div} {...FramerMotionFadeProps}>
+            <HomeButton
+              size='large'
+              edge='start'
+              color='inherit'
+              hidden={isHomePage}
+              onClick={handleHomeButtonClick}
             >
-              {selectedBoss && (
-                <BossIcon
-                  src={`/assets/${selectedBoss.code}/${selectedBoss.icon}`}
-                  alt={selectedBoss.name}
-                />
-              )}
+              <KeyboardBackspaceIcon />
+            </HomeButton>
+          </Box>
+        </AnimatePresence>
 
-              <Typography variant='h6' textAlign='center'>
-                {selectedBoss?.name}
-              </Typography>
-            </Stack>
-          </AnimatePresence>
+        <AnimatePresence>
+          <Stack
+            component={motion.div}
+            {...FramerMotionFadeProps}
+            flexGrow={1}
+            direction='row'
+            justifyContent='center'
+            alignItems='center'
+            spacing={1}
+          >
+            {selectedBoss && (
+              <BossIcon
+                src={`/assets/${selectedBoss.code}/${selectedBoss.icon}`}
+                alt={selectedBoss.name}
+              />
+            )}
 
-          <Settings />
-        </Toolbar>
-      </AppBar>
-      <Toolbar />
-    </React.Fragment>
+            <Typography variant='h6' textAlign='center'>
+              {selectedBoss?.name}
+            </Typography>
+          </Stack>
+        </AnimatePresence>
+
+        <Settings />
+      </Toolbar>
+    </AppBar>
   );
 };
 
-Header._jestTestId = 'header-component';
+Header._jestTestId = 'header';

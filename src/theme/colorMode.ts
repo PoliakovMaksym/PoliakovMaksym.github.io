@@ -9,7 +9,7 @@ export enum ColorMode {
   System = 'system',
 }
 
-// Function to check if provided value is a valid color mode value
+// Function to check if the provided value is a valid color mode value
 const isValidColorMode = (value: any): value is ColorMode => {
   return Object.values(ColorMode).includes(value);
 };

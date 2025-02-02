@@ -19,6 +19,7 @@ export const Settings = () => {
   const toggleDrawer = (newDrawerState: boolean) => () => setDrawerOpen(newDrawerState);
 
   const { colorMode, toggleColorMode } = useToggleColorMode();
+  const handleColoModeChange = (newColorMode: ColorMode) => () => toggleColorMode(newColorMode);
   const isSelected = (buttonColorMode: ColorMode) => buttonColorMode === colorMode;
 
   return (
@@ -50,21 +51,21 @@ export const Settings = () => {
             <Button
               startIcon={<LightModeIcon />}
               className={merge({ [utilityClasses.selected]: isSelected(ColorMode.Light) })}
-              onClick={() => toggleColorMode(ColorMode.Light)}
+              onClick={handleColoModeChange(ColorMode.Light)}
             >
               Light
             </Button>
             <Button
               startIcon={<SettingsBrightnessIcon />}
               className={merge({ [utilityClasses.selected]: isSelected(ColorMode.System) })}
-              onClick={() => toggleColorMode(ColorMode.System)}
+              onClick={handleColoModeChange(ColorMode.System)}
             >
               System
             </Button>
             <Button
               startIcon={<DarkModeOutlinedIcon />}
               className={merge({ [utilityClasses.selected]: isSelected(ColorMode.Dark) })}
-              onClick={() => toggleColorMode(ColorMode.Dark)}
+              onClick={handleColoModeChange(ColorMode.Dark)}
             >
               Dark
             </Button>
