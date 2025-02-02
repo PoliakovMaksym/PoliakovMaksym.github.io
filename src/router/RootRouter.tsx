@@ -26,6 +26,7 @@ export const RootRouter = () => {
       <Routes location={location} key={location.pathname}>
         <Route element={<RootContainer />}>
           <Route path='/' element={<HomePage />} />
+
           {BOSSES.map(boss => {
             const BossPage = BossPages[boss.code];
             return (
