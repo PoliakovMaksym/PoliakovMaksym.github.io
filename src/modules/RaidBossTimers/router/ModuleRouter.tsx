@@ -10,14 +10,14 @@ import { SlothasorPage } from '../pages/Slothasor';
 import { TrioPage } from '../pages/Trio';
 import { BossPageProps } from '../pages/types';
 
-const BossPageRoutes = BOSSES.map(boss => {
-  const BossPagesMap: Record<BossCode, React.JSXElementConstructor<BossPageProps>> = {
-    [BossCode.Sabetha]: SabethaPage,
-    [BossCode.Slothasor]: SlothasorPage,
-    [BossCode.Trio]: TrioPage,
-    [BossCode.Dhuum]: DhuumPage,
-  };
+const BossPagesMap: Record<BossCode, React.JSXElementConstructor<BossPageProps>> = {
+  [BossCode.Sabetha]: SabethaPage,
+  [BossCode.Slothasor]: SlothasorPage,
+  [BossCode.Trio]: TrioPage,
+  [BossCode.Dhuum]: DhuumPage,
+};
 
+const BossPageRoutes = BOSSES.map(boss => {
   const BossPage = BossPagesMap[boss.code];
   return <Route key={boss.code} path={boss.code} element={<BossPage bossInfo={boss} />} />;
 });
