@@ -8,9 +8,9 @@ import { FramerMotionFadeProps } from 'utils';
 import { BOSSES } from '../../data';
 import { KeyboardBackspaceIcon } from '../../icons';
 import { ModuleRouterBase } from '../../router';
+import { SettingsDrawer } from '../SettingsDrawer';
 
 import { BossIcon, HomeButton, StyledToolbar } from './Header.styled';
-import { Settings } from './Settings';
 
 export const Header = () => {
   const location = useLocation();
@@ -66,7 +66,7 @@ export const Header = () => {
           )}
         </AnimatePresence>
 
-        <Settings />
+        <SettingsDrawer />
       </StyledToolbar>
     </AppBar>
   );

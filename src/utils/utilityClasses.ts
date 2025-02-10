@@ -9,6 +9,8 @@ export const utilityClasses = generateUtilityClasses<GlobalStateSlot>('', [
   'expanded',
   'focused',
   'focusVisible',
+  'open',
+  'readOnly',
   'required',
   'selected',
 ]);

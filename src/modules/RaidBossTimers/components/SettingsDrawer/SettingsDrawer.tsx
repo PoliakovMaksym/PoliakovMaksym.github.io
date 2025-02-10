@@ -1,9 +1,7 @@
 import React from 'react';
 import { Divider, IconButton, Typography } from '@mui/material';
-import merge from 'classnames';
 
 import { ColorMode, useToggleColorMode } from 'theme/colorMode';
-import { utilityClasses } from 'utils';
 
 import {
   CloseIcon,
@@ -11,34 +9,42 @@ import {
   LightModeIcon,
   SettingsBrightnessIcon,
   SettingsOutlinedIcon,
-} from '../../../icons';
+} from '../../icons';
 
-import { Button, ButtonGroup, Drawer, DrawerContent, DrawerHeader } from './Settings.styled';
+import { Button, ButtonGroup, Drawer, DrawerContent, DrawerHeader } from './SettingsDrawer.styled';
 
-export const Settings = () => {
+export const SettingsDrawer = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const toggleDrawer = (newDrawerState: boolean) => () => setDrawerOpen(newDrawerState);
+  const toggleDrawerOpen = React.useCallback(
+    (newDrawerState: boolean) => () => setDrawerOpen(newDrawerState),
+    [],
+  );
 
   const { colorMode, toggleColorMode } = useToggleColorMode();
-  const handleColoModeChange = (newColorMode: ColorMode) => () => toggleColorMode(newColorMode);
-  const isSelected = (buttonColorMode: ColorMode) => buttonColorMode === colorMode;
+
+  const handleColoModeChange = React.useCallback(
+    (newColorMode: ColorMode) => () => toggleColorMode(newColorMode),
+    [toggleColorMode],
+  );
 
   return (
-    <React.Fragment>
-      <IconButton size='large' edge='end' color='inherit' onClick={toggleDrawer(true)}>
+    <>
+      <IconButton size='large' edge='end' color='inherit' onClick={toggleDrawerOpen(true)}>
         <SettingsOutlinedIcon />
       </IconButton>
+
       <Drawer
         open={drawerOpen}
-        onOpen={toggleDrawer(true)}
-        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawerOpen(true)}
+        onClose={toggleDrawerOpen(false)}
         anchor='right'
       >
         <DrawerHeader>
           <Typography variant='h6' component='div'>
             Settings
           </Typography>
-          <IconButton size='medium' edge='end' color='inherit' onClick={toggleDrawer(false)}>
+
+          <IconButton size='medium' edge='end' color='inherit' onClick={toggleDrawerOpen(false)}>
             <CloseIcon />
           </IconButton>
         </DrawerHeader>
@@ -51,21 +57,23 @@ export const Settings = () => {
           <ButtonGroup variant='outlined'>
             <Button
               startIcon={<LightModeIcon />}
-              className={merge({ [utilityClasses.selected]: isSelected(ColorMode.Light) })}
+              selected={colorMode === ColorMode.Light}
               onClick={handleColoModeChange(ColorMode.Light)}
             >
               Light
             </Button>
+
             <Button
               startIcon={<SettingsBrightnessIcon />}
-              className={merge({ [utilityClasses.selected]: isSelected(ColorMode.System) })}
+              selected={colorMode === ColorMode.System}
               onClick={handleColoModeChange(ColorMode.System)}
             >
               System
             </Button>
+
             <Button
               startIcon={<DarkModeOutlinedIcon />}
-              className={merge({ [utilityClasses.selected]: isSelected(ColorMode.Dark) })}
+              selected={colorMode === ColorMode.Dark}
               onClick={handleColoModeChange(ColorMode.Dark)}
             >
               Dark
@@ -73,6 +81,6 @@ export const Settings = () => {
           </ButtonGroup>
         </DrawerContent>
       </Drawer>
-    </React.Fragment>
+    </>
   );
 };
