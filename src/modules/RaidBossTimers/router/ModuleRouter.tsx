@@ -22,8 +22,6 @@ const BossPageRoutes = BOSSES.map(boss => {
   return <Route key={boss.code} path={boss.code} element={<BossPage bossInfo={boss} />} />;
 });
 
-export const ModuleRouterBase = '/raid-boss-timers';
-
 export const ModuleRouter = () => {
   const location = useLocation();
   const basePath = React.useMemo(
