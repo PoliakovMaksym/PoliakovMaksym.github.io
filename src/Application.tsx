@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router';
 
-import { RootRouter } from './router';
+import { ApplicationRouter } from './router';
 import { ThemeProvider } from './theme';
 
-export const App = () => (
+export const Application = () => (
   <React.StrictMode>
     <ThemeProvider>
       <BrowserRouter basename='/'>
-        <RootRouter />
+        <ApplicationRouter />
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>

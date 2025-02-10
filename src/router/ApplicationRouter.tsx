@@ -6,7 +6,7 @@ import {
   ModuleRouterBase as RaidBossTimerModuleRouterBase,
 } from 'modules/RaidBossTimers/router';
 
-export const RootRouter = () => {
+export const ApplicationRouter = () => {
   const location = useLocation();
 
   return (
