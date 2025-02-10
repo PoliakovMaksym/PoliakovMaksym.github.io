@@ -117,7 +117,7 @@ export default compat.config({
               // React related packages come first.
               ['^react', '^@?\\w'],
               // Internal packages.
-              ['^(components|data|icons|pages|router|testUtils|theme|types|utils)(/.*|$)'],
+              ['^(modules|router|testUtils|theme|types|utils)(/.*|$)'],
               // Side effect imports.
               ['^\\u0000'],
               // Parent imports. Put `..` last.

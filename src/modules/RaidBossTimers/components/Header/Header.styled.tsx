@@ -1,4 +1,8 @@
-import { IconButton, styled } from '@mui/material';
+import { IconButton, styled, Toolbar } from '@mui/material';
+
+export const StyledToolbar = styled(Toolbar)({
+  justifyContent: 'space-between',
+});
 
 export const BossIcon = styled('img')({
   width: '24px',

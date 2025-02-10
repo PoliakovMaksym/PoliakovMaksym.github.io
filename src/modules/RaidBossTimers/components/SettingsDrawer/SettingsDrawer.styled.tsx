@@ -3,13 +3,12 @@ import {
   Box,
   Button as MuiButton,
   ButtonGroup as MuiButtonGroup,
+  ButtonProps,
   paperClasses,
   Stack,
   styled,
   SwipeableDrawer,
 } from '@mui/material';
-
-import { utilityClasses } from 'utils';
 
 export const Drawer = styled(SwipeableDrawer)(({ theme }) => ({
   [`.${paperClasses.root}`]: {
@@ -35,7 +34,9 @@ export const ButtonGroup = styled(MuiButtonGroup)({
   width: '100%',
 });
 
-export const Button = styled(MuiButton)(({ theme }) => ({
+export const Button = styled(MuiButton, {
+  shouldForwardProp: propName => propName !== 'selected',
+})<ButtonProps & { selected: boolean }>(({ theme, selected }) => ({
   borderRadius: '12px',
 
   [theme.breakpoints.down('sm')]: { padding: theme.spacing(1.5, 2) },
@@ -44,8 +45,8 @@ export const Button = styled(MuiButton)(({ theme }) => ({
     padding: theme.spacing(1.5),
   },
 
-  [`&.${utilityClasses.selected}`]: {
+  ...(selected && {
     ...theme.applyStyles('light', { backgroundColor: '#EBF5FF' }),
     ...theme.applyStyles('dark', { backgroundColor: alpha('#003B75', 0.4) }),
-  },
+  }),
 }));

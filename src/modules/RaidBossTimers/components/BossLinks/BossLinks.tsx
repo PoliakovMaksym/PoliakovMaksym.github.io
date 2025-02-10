@@ -1,6 +1,6 @@
 import { Button, ButtonProps, styled } from '@mui/material';
 
-import { BossInfo } from 'data';
+import { BossInfo } from '../../data';
 
 type AnchorButtonProps = ButtonProps<'a', { component: 'a' }>;
 const StyledButton = styled(Button)<AnchorButtonProps>(({ size }) => ({
