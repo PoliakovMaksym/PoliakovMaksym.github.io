@@ -1,22 +1,10 @@
-import React from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
-import { RootContainer } from 'components/RootContainer';
-import { BossCode, BOSSES } from 'data';
-import { DhuumPage } from 'pages/Dhuum';
-import { HomePage } from 'pages/Home';
-import { SabethaPage } from 'pages/Sabetha';
-import { SlothasorPage } from 'pages/Slothasor';
-import { TrioPage } from 'pages/Trio';
-import { BossPageProps } from 'pages/types';
-
-const BossPages: Record<BossCode, React.JSXElementConstructor<BossPageProps>> = {
-  [BossCode.Sabetha]: SabethaPage,
-  [BossCode.Slothasor]: SlothasorPage,
-  [BossCode.Trio]: TrioPage,
-  [BossCode.Dhuum]: DhuumPage,
-};
+import {
+  ModuleRouter as RaidBossTimersModuleRouter,
+  ModuleRouterBase as RaidBossTimerModuleRouterBase,
+} from 'modules/RaidBossTimers/router';
 
 export const RootRouter = () => {
   const location = useLocation();
@@ -24,21 +12,16 @@ export const RootRouter = () => {
   return (
     <AnimatePresence mode='wait'>
       <Routes location={location} key={location.pathname}>
-        <Route element={<RootContainer />}>
-          <Route path='/' element={<HomePage />} />
+        {/* Home page */}
+        <Route path='/' element={null} />
 
-          {BOSSES.map(boss => {
-            const BossPage = BossPages[boss.code];
-            return (
-              <Route
-                key={boss.code}
-                path={`/${boss.code}`}
-                element={<BossPage bossInfo={boss} />}
-              />
-            );
-          })}
-        </Route>
+        {/* Modules */}
+        <Route
+          path={`${RaidBossTimerModuleRouterBase}/*`}
+          element={<RaidBossTimersModuleRouter />}
+        />
 
+        {/* 404 handler */}
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
     </AnimatePresence>

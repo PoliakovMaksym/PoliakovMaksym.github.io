@@ -1,5 +1,5 @@
-import { BossCard } from 'components/BossCard';
-import { BOSSES } from 'data';
+import { BossCard } from '../../components/BossCard';
+import { BOSSES } from '../../data';
 
 import { GridContainer, GridItem } from './HomePage.styled';
 

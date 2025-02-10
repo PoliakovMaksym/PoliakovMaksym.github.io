@@ -2,15 +2,16 @@ import React from 'react';
 import { Divider, IconButton, Typography } from '@mui/material';
 import merge from 'classnames';
 
+import { ColorMode, useToggleColorMode } from 'theme/colorMode';
+import { utilityClasses } from 'utils';
+
 import {
   CloseIcon,
   DarkModeOutlinedIcon,
   LightModeIcon,
   SettingsBrightnessIcon,
   SettingsOutlinedIcon,
-} from 'icons';
-import { ColorMode, useToggleColorMode } from 'theme/colorMode';
-import { utilityClasses } from 'utils';
+} from '../../../icons';
 
 import { Button, ButtonGroup, Drawer, DrawerContent, DrawerHeader } from './Settings.styled';
 

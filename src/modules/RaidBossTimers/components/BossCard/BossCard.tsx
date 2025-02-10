@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { CardContent, CardMedia, Typography } from '@mui/material';
 
-import { BossLinks } from 'components/BossLinks';
-import { BossInfo } from 'data';
-import { PlaceIcon } from 'icons';
+import { BossInfo } from '../../data';
+import { PlaceIcon } from '../../icons';
+import { BossLinks } from '../BossLinks';
 
 import {
   AnimatedMovingLine,
@@ -25,9 +25,9 @@ interface BossCardProps {
 
 export const BossCard = (props: BossCardProps) => {
   const { bossInfo } = props;
-  const redirectTarget = `/${bossInfo.code}`;
 
   // Handle navigation when card is clicked
+  const redirectTarget = `${bossInfo.code}`;
   const navigate = useNavigate();
   const handleCardClick = (event: React.MouseEvent) => {
     event.preventDefault();
