@@ -1,6 +1,6 @@
 export const SlothasorPage = () => (
   <>
-    <title>Slothasor - Raid Boss Timers</title>
+    <title>Slothasor</title>
     <div>SlothasorPage</div>
   </>
 );

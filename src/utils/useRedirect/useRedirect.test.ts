@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { renderHook } from '@testing-library/react';
+
+import { renderHook } from 'testUtils';
 
 import { useRedirect } from './useRedirect';
 

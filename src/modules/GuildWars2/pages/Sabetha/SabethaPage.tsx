@@ -1,6 +1,6 @@
 export const SabethaPage = () => (
   <>
-    <title>Sabetha - Raid Boss Timers</title>
+    <title>Sabetha</title>
     <div>SabethaPage</div>
   </>
 );

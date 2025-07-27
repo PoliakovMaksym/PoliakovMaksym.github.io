@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog, DialogContent, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 
-import { ModuleRouterBase as RaidBossTimerModuleRouterBase } from 'modules/RaidBossTimers/router';
+import { ModuleRouterBase as GuildWars2ModuleRouterBase } from 'modules/GuildWars2/router';
 import { useRedirect } from 'utils';
 
 import { Container, LogoLink, Paragraph, Root, Suggestions, Title } from './Fake404Page.styled';
@@ -47,7 +47,7 @@ export const Fake404Page = () => {
         <DialogContent>
           <List>
             <ListItem disablePadding>
-              <ListItemButton onClick={redirect(RaidBossTimerModuleRouterBase)}>
+              <ListItemButton onClick={redirect(GuildWars2ModuleRouterBase)}>
                 <ListItemText primary='Guild Wars 2' />
               </ListItemButton>
             </ListItem>

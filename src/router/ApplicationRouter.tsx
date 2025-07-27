@@ -2,9 +2,9 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
 import {
-  ModuleRouter as RaidBossTimersModuleRouter,
-  ModuleRouterBase as RaidBossTimerModuleRouterBase,
-} from 'modules/RaidBossTimers/router';
+  ModuleRouter as GuildWars2ModuleRouter,
+  ModuleRouterBase as GuildWars2ModuleRouterBase,
+} from 'modules/GuildWars2/router';
 
 import { Fake404Page } from './Fake404Page';
 
@@ -18,10 +18,7 @@ export const ApplicationRouter = () => {
         <Route path='/' element={<Fake404Page />} />
 
         {/* Modules */}
-        <Route
-          path={`${RaidBossTimerModuleRouterBase}/*`}
-          element={<RaidBossTimersModuleRouter />}
-        />
+        <Route path={`${GuildWars2ModuleRouterBase}/*`} element={<GuildWars2ModuleRouter />} />
 
         {/* 404 handler */}
         <Route path='*' element={<Navigate to='/' replace />} />
