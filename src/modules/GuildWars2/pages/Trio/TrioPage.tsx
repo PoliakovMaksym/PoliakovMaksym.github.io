@@ -1,6 +1,6 @@
 export const TrioPage = () => (
   <>
-    <title>Trio - Raid Boss Timers</title>
+    <title>Trio</title>
     <div>TrioPage</div>
   </>
 );

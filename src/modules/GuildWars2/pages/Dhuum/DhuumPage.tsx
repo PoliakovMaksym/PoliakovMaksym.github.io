@@ -1,6 +1,6 @@
 export const DhuumPage = () => (
   <>
-    <title>Dhuum - Raid Boss Timers</title>
+    <title>Dhuum</title>
     <div>DhuumPage</div>
   </>
 );

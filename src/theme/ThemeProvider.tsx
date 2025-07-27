@@ -46,8 +46,6 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
     window.addEventListener('storage', () => setColorMode(getColorModeFromLocalStorage()));
   }, []);
 
-  console.log(theme);
-
   return (
     <ColorModeContext.Provider value={{ colorMode, toggleColorMode }}>
       <MuiThemeProvider theme={theme}>

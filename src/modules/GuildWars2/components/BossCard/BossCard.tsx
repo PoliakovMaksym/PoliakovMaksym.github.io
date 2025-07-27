@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
 import { CardContent, CardMedia, Typography } from '@mui/material';
+
+import { useRedirect } from 'utils';
 
 import { BossInfo } from '../../data';
 import { PlaceIcon } from '../../icons';
@@ -27,14 +27,9 @@ export const BossCard = (props: BossCardProps) => {
   const { bossInfo } = props;
 
   // Handle navigation when card is clicked
+  const redirect = useRedirect();
   const redirectTarget = `${bossInfo.code}`;
-  const navigate = useNavigate();
-  const handleCardClick = (event: React.MouseEvent) => {
-    event.preventDefault();
-
-    if (event.ctrlKey) window.open(redirectTarget, '_blank');
-    else navigate(redirectTarget);
-  };
+  const handleCardClick = redirect(redirectTarget);
 
   return (
     <CardWrapper>
