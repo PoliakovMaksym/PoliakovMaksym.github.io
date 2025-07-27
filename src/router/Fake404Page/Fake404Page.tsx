@@ -12,8 +12,13 @@ export const Fake404Page = () => {
   const redirect = useRedirect();
   const [isHiddenContentVisible, setIsHiddenContentVisible] = React.useState(false);
 
-  const showHiddenContent = React.useCallback(() => setIsHiddenContentVisible(true), []);
   const hideHiddenContent = React.useCallback(() => setIsHiddenContentVisible(false), []);
+  const showHiddenContent = React.useCallback((event: React.MouseEvent) => {
+    if (event.altKey) {
+      event.preventDefault();
+      setIsHiddenContentVisible(true);
+    }
+  }, []);
 
   return (
     <>
@@ -38,7 +43,7 @@ export const Fake404Page = () => {
             <a href='https://twitter.com/githubstatus'>@githubstatus</a>
           </Suggestions>
 
-          <LogoLink onClick={showHiddenContent}>
+          <LogoLink href='/' onClick={showHiddenContent}>
             <GitHubLogo />
           </LogoLink>
         </Container>
