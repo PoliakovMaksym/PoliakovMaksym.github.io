@@ -6,6 +6,8 @@ import {
   ModuleRouterBase as RaidBossTimerModuleRouterBase,
 } from 'modules/RaidBossTimers/router';
 
+import { Fake404Page } from './Fake404Page';
+
 export const ApplicationRouter = () => {
   const location = useLocation();
 
@@ -13,7 +15,7 @@ export const ApplicationRouter = () => {
     <AnimatePresence mode='wait'>
       <Routes location={location} key={location.pathname}>
         {/* Home page */}
-        <Route path='/' element={null} />
+        <Route path='/' element={<Fake404Page />} />
 
         {/* Modules */}
         <Route

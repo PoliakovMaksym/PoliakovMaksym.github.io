@@ -1,0 +1,65 @@
+import React from 'react';
+import { Dialog, DialogContent, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+
+import { ModuleRouterBase as RaidBossTimerModuleRouterBase } from 'modules/RaidBossTimers/router';
+import { useRedirect } from 'utils';
+
+import { Container, LogoLink, Paragraph, Root, Suggestions, Title } from './Fake404Page.styled';
+import { GitHubLogo } from './GitHubLogo';
+
+export const Fake404Page = () => {
+  const redirect = useRedirect();
+  const [isHiddenContentVisible, setIsHiddenContentVisible] = React.useState(false);
+
+  const showHiddenContent = React.useCallback(() => setIsHiddenContentVisible(true), []);
+  const hideHiddenContent = React.useCallback(() => setIsHiddenContentVisible(false), []);
+
+  return (
+    <>
+      <title>Site not found · GitHub Pages</title>
+
+      <Root>
+        <Container>
+          <Title>404</Title>
+
+          <Paragraph>
+            <strong>There isn't a GitHub Pages site here.</strong>
+          </Paragraph>
+
+          <Paragraph>
+            If you're trying to publish one,{' '}
+            <a href='https://help.github.com/pages/'>read the full documentation</a> to learn how to
+            set up <strong>GitHub Pages</strong> for your repository, organization, or user account.
+          </Paragraph>
+
+          <Suggestions>
+            <a href='https://githubstatus.com'>GitHub Status</a> —{' '}
+            <a href='https://twitter.com/githubstatus'>@githubstatus</a>
+          </Suggestions>
+
+          <LogoLink onClick={showHiddenContent}>
+            <GitHubLogo />
+          </LogoLink>
+        </Container>
+      </Root>
+
+      <Dialog open={isHiddenContentVisible} onClose={hideHiddenContent}>
+        <DialogContent>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton onClick={redirect(RaidBossTimerModuleRouterBase)}>
+                <ListItemText primary='Guild Wars 2' />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding>
+              <ListItemButton onClick={redirect('bitcraft-online')}>
+                <ListItemText primary='BitCraft Online' />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
