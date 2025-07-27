@@ -58,7 +58,7 @@ export const Suggestions = styled('div')({
   },
 });
 
-export const LogoLink = styled('div')({
+export const LogoLink = styled('a')({
   display: 'inline-block',
   marginTop: '35px',
   cursor: 'pointer',
