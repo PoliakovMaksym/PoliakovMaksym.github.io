@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dialog, DialogContent, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 
+import { ModuleRouterBase as BitCraftOnlineModuleRouterBase } from 'modules/BitCraftOnline/router';
 import { ModuleRouterBase as GuildWars2ModuleRouterBase } from 'modules/GuildWars2/router';
 import { useRedirect } from 'utils';
 
@@ -53,7 +54,7 @@ export const Fake404Page = () => {
             </ListItem>
 
             <ListItem disablePadding>
-              <ListItemButton onClick={redirect('bitcraft-online')}>
+              <ListItemButton onClick={redirect(BitCraftOnlineModuleRouterBase)}>
                 <ListItemText primary='BitCraft Online' />
               </ListItemButton>
             </ListItem>

@@ -2,6 +2,10 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
 import {
+  ModuleRouter as BitCraftOnlineModuleRouter,
+  ModuleRouterBase as BitCraftOnlineModuleRouterBase,
+} from 'modules/BitCraftOnline/router';
+import {
   ModuleRouter as GuildWars2ModuleRouter,
   ModuleRouterBase as GuildWars2ModuleRouterBase,
 } from 'modules/GuildWars2/router';
@@ -19,6 +23,10 @@ export const ApplicationRouter = () => {
 
         {/* Modules */}
         <Route path={`${GuildWars2ModuleRouterBase}/*`} element={<GuildWars2ModuleRouter />} />
+        <Route
+          path={`${BitCraftOnlineModuleRouterBase}/*`}
+          element={<BitCraftOnlineModuleRouter />}
+        />
 
         {/* 404 handler */}
         <Route path='*' element={<Navigate to='/' replace />} />
