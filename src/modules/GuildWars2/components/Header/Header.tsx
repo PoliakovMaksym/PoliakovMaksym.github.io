@@ -1,12 +1,12 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { AppBar, Box, Stack, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { FramerMotionFadeProps } from 'utils';
 
 import { BOSSES } from '../../data';
-import { KeyboardBackspaceIcon } from '../../icons';
 import { ModuleRouterBase } from '../../router';
 import { SettingsDrawer } from '../SettingsDrawer';
 

@@ -1,9 +1,9 @@
+import PlaceIcon from '@mui/icons-material/Place';
 import { CardContent, CardMedia, Typography } from '@mui/material';
 
 import { useRedirect } from 'utils';
 
 import { BossInfo } from '../../data';
-import { PlaceIcon } from '../../icons';
 import { BossLinks } from '../BossLinks';
 
 import {
