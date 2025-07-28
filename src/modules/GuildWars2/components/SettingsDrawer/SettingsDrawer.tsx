@@ -1,30 +1,15 @@
 import React from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Divider, IconButton, Typography } from '@mui/material';
 
-import { ColorMode, useToggleColorMode } from 'theme/colorMode';
-
-import {
-  CloseIcon,
-  DarkModeOutlinedIcon,
-  LightModeIcon,
-  SettingsBrightnessIcon,
-  SettingsOutlinedIcon,
-} from '../../icons';
-
-import { Button, ButtonGroup, Drawer, DrawerContent, DrawerHeader } from './SettingsDrawer.styled';
+import { Drawer, DrawerContent, DrawerHeader } from './SettingsDrawer.styled';
 
 export const SettingsDrawer = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const toggleDrawerOpen = React.useCallback(
     (newDrawerState: boolean) => () => setDrawerOpen(newDrawerState),
     [],
-  );
-
-  const { colorMode, toggleColorMode } = useToggleColorMode();
-
-  const handleColoModeChange = React.useCallback(
-    (newColorMode: ColorMode) => () => toggleColorMode(newColorMode),
-    [toggleColorMode],
   );
 
   return (
@@ -51,35 +36,7 @@ export const SettingsDrawer = () => {
 
         <Divider />
 
-        <DrawerContent spacing={1}>
-          <Typography>Mode</Typography>
-
-          <ButtonGroup variant='outlined'>
-            <Button
-              startIcon={<LightModeIcon />}
-              selected={colorMode === ColorMode.Light}
-              onClick={handleColoModeChange(ColorMode.Light)}
-            >
-              Light
-            </Button>
-
-            <Button
-              startIcon={<SettingsBrightnessIcon />}
-              selected={colorMode === ColorMode.System}
-              onClick={handleColoModeChange(ColorMode.System)}
-            >
-              System
-            </Button>
-
-            <Button
-              startIcon={<DarkModeOutlinedIcon />}
-              selected={colorMode === ColorMode.Dark}
-              onClick={handleColoModeChange(ColorMode.Dark)}
-            >
-              Dark
-            </Button>
-          </ButtonGroup>
-        </DrawerContent>
+        <DrawerContent spacing={1}>WIP</DrawerContent>
       </Drawer>
     </>
   );
