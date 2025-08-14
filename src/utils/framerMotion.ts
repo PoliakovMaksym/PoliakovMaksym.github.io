@@ -1,6 +1,6 @@
-import { AnimationProps } from 'framer-motion';
+import { MotionNodeAnimationOptions } from 'framer-motion';
 
-export const FramerMotionFadeProps: AnimationProps = {
+export const FramerMotionFadeProps: MotionNodeAnimationOptions = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },
